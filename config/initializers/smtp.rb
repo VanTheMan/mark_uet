@@ -1,8 +1,8 @@
 ActionMailer::Base.smtp_settings = {
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :authentication => :plain,
-  :domain => 'toannm3110@gmail.com',
-  :user_name => 'toannm3110@gmail.com',
-  :password => 'manhtoan',
+  :address              => "smtp.sendgrid.net",
+  :port                 => 25,
+  :domain               => 'asiaexpat.com.sg',
+  :user_name            => 'team@vinova.sg',
+  :password             => 'vinova01',
+  :authentication       => 'plain'
 }
