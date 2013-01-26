@@ -1,0 +1,5 @@
+<ul class="unstyled">
+  <% @marks.each do |mark| %>
+    <li class="well"><%= link_to mark.title, mark.link %></li>
+  <% end %>
+</ul>
