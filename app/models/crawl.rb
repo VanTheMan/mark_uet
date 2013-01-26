@@ -39,7 +39,8 @@ class Crawl
       res = Nokogiri.HTML(response.body)
       unless res.css("a").blank?
         res.css("a").each do |element|
-          link = "http://www.coltech.vnu.edu.vn" + element.attr("href").delete("..")
+          href = element.attr("href")
+          link = "http://www.coltech.vnu.edu.vn/" + href.slice!(3..href.length)
           title = element.text
           date = title.match(/\d{2}\/\d{2}\/\d{4}/)
           time = title.match(/\d{2}\:\d{2}/)
