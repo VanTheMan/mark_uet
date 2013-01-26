@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Crawl
   def crawl_subjects(category)
     url = "http://www.coltech.vnu.edu.vn/news4st/test.php"
