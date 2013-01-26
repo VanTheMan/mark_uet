@@ -5,6 +5,5 @@ namespace :db do
     categories.each do |category|
       Crawl.new.crawl_results(category)
     end
-    NoticeMailer.notification.deliver
   end
 end
