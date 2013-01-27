@@ -1,8 +1,7 @@
-<div style="display:none">
-  <%= image_tag("/assets/matrix.png") %>
+<div>
+  <ul class="unstyled">
+    <% @marks.each do |mark| %>
+      <li class="well"><%= link_to mark.title, mark.link %></li>
+    <% end %>
+  </ul>
 </div>
-<ul class="unstyled">
-  <% @marks.each do |mark| %>
-    <li class="well"><%= link_to mark.title, mark.link %></li>
-  <% end %>
-</ul>

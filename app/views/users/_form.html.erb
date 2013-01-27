@@ -1,0 +1,10 @@
+<%= image_tag("/assets/matrix.png", :class => "image") %>
+<h3>Give me your email</h3>
+<%= form_for @user do |f| %>
+  <div class="field">
+    <%= f.text_field :email, class: "input-xlarge" %>
+  </div>
+  <div class="submit pull-right">
+    <%= f.submit "Subcribe", class: "btn btn-primay " %>
+  </div>
+<% end %>

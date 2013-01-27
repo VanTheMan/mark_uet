@@ -4,7 +4,10 @@ class UserMailer < ActionMailer::Base
     @receiver1 = "toannm3110@gmail.com"
     @receiver2 = "loandt1991@gmail.com"
     @receiver3 = "54ca@googlegroups.com"
+    @mails = User.all.map{ |u| u.email }
+    @mails += [@receiver1,@receiver2,@receiver3]
+
     @mark = mark
-    mail(to: [@receiver1,@receiver2,@receiver3], subject: "News from UET")
+    mail(to: @mails, subject: "News from UET")
   end
 end

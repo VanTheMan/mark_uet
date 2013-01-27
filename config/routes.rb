@@ -3,6 +3,8 @@ MarkUet::Application.routes.draw do
 
   match 'filter' => 'marks#filter'
 
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
