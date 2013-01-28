@@ -3,7 +3,7 @@ class MarksController < ApplicationController
     @user = User.new
     categories = ["INT", "MAT", "PHY"]
     categories.each do |category|
-      Crawl.new.crawl_results(category)
+      Crawl.new.crawl_results(category, false)
     end
     @marks = Mark.all
   end

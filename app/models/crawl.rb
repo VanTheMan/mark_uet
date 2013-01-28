@@ -24,9 +24,11 @@ class Crawl
     subjects
   end
 
-  def crawl_results(category)
+  def crawl_results(category, all)
     subjects = crawl_subjects(category)
-    subjects = filter_subjects_not_crawl(subjects)
+    if all == false
+      subjects = filter_subjects_not_crawl(subjects)
+    end
 
     conn = Faraday.new(:url => 'http://www.coltech.vnu.edu.vn') do |faraday|
       faraday.request  :url_encoded             # form-encode POST params

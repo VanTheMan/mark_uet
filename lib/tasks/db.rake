@@ -3,15 +3,16 @@ namespace :db do
   task update: :environment do
     categories = ["INT", "MAT", "PHY"]
     categories.each do |category|
-      Crawl.new.crawl_results(category)
+      Crawl.new.crawl_results(category, false)
     end
-    unknowns = ["INT 3011", "INT 3066", "INT 3093","INT 3056", "INT 3061"]
-    unknowns.each do |u|
-      if m = Mark.where(code: u).first
-        if (Time.now - m.uploaded_at) < 10.minutes
-          UserMailer.notice(m).deliver
-        end
-      end
+    Mark.find_unknowns
+  end
+
+  task crawl_all: :environment do
+    categories = ["INT", "MAT", "PHY"]
+    categories.each do |category|
+      Crawl.new.crawl_results(category, true)
     end
+    Mark.find_unknowns
   end
 end
