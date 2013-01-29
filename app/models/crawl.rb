@@ -5,7 +5,8 @@ class Crawl
     url = "http://www.coltech.vnu.edu.vn/news4st/test.php"
     begin
       open(url)
-    rescue Errno::EHOSTUNREACH
+    rescue Exception => e
+      puts "Couldn't read \"#{ url }\": #{ e }"
       return false
     end
   end
