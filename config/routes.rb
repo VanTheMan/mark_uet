@@ -2,6 +2,7 @@ MarkUet::Application.routes.draw do
   root to: 'marks#index'
 
   match 'filter' => 'marks#filter'
+  match 'sorry' => 'marks#uet_suck'
 
   resources :users
 

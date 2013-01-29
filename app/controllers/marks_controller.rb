@@ -2,8 +2,12 @@ class MarksController < ApplicationController
   def index
     @user = User.new
     categories = ["INT", "MAT", "PHY"]
-    categories.each do |category|
-      Crawl.new.crawl_results(category, false)
+    if Crawl.check_uet
+      categories.each do |category|
+        Crawl.new.crawl_results(category, false)
+      end
+    else
+      redirect_to sorry_path
     end
     @marks = Mark.all
   end
@@ -18,5 +22,9 @@ class MarksController < ApplicationController
     when 'phy'
       @marks = Mark.filter_phy
     end
+  end
+
+  def uet_suck
+    @user = User.new
   end
 end

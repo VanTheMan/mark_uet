@@ -1,6 +1,15 @@
 require 'open-uri'
 
 class Crawl
+  def self.check_uet
+    url = "http://www.coltech.vnu.edu.vn/news4st/test.php"
+    begin
+      open(url)
+    rescue Errno::EHOSTUNREACH
+      return false
+    end
+  end
+
   def crawl_subjects(category)
     url = "http://www.coltech.vnu.edu.vn/news4st/test.php"
     subjects = {}
