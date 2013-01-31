@@ -11,7 +11,7 @@ class Mark < ActiveRecord::Base
   end
 
   def self.find_unknowns
-    unknowns = ["INT 3011", "INT 3066", "INT 3093", "INT 3061"]
+    unknowns = ["INT 3066", "INT 3093", "INT 3061"]
     unknowns.each do |u|
       if m = Mark.where(code: u).first
         # binding.pry
