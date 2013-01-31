@@ -14,7 +14,7 @@ class Mark < ActiveRecord::Base
     unknowns = ["INT 3011", "INT 3066", "INT 3093", "INT 3061"]
     unknowns.each do |u|
       if m = Mark.where(code: u).first
-        if (Time.now - m.uploaded_at) < 10.minutes
+        if (Time.now.min - m.uploaded_at.min) < 10
           UserMailer.notice(m).deliver
         end
       end
