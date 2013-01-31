@@ -14,7 +14,6 @@ class Mark < ActiveRecord::Base
     unknowns = ["INT 3066", "INT 3093", "INT 3061"]
     unknowns.each do |u|
       if m = Mark.where(code: u).first
-        # binding.pry
         if Mark.check_time(Time.now, m.uploaded_at)
           UserMailer.notice(m).deliver
         end
@@ -23,7 +22,7 @@ class Mark < ActiveRecord::Base
   end
 
   def self.check_time(now, upload)
-    if (now.day == upload.day) && (now.hour == upload.hour) && (now.min - upload.min < 10)
+    if (now.day == upload.day) && (now.hour + 7 == upload.hour) && (now.min - upload.min < 10)
       return true
     end
   end
