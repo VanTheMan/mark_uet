@@ -23,7 +23,7 @@ class Mark < ActiveRecord::Base
   end
 
   def self.check_time(now, upload)
-    if (now.day == upload.day) && (now.hour == upload.hour) && (now.min - upload.min > 10)
+    if (now.day == upload.day) && (now.hour == upload.hour) && (now.min - upload.min < 10)
       return true
     end
   end
