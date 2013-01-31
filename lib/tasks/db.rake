@@ -16,7 +16,7 @@ namespace :db do
     categories = ["INT", "MAT", "PHY"]
     if Crawl.check_uet
       categories.each do |category|
-        Crawl.new.crawl_results(category, false)
+        Crawl.new.crawl_results(category, true)
       end
     else
       puts "Die"
