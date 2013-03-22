@@ -9,6 +9,8 @@ gem 'nokogiri'
 gem 'pry'
 gem 'faraday'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'sqlite3', '1.3.5'
 end
