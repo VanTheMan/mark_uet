@@ -69,4 +69,13 @@ class Crawl
       end
     end
   end
+
+  def self.crawl_subjects_by_semester
+    url = "http://112.137.129.115/tkb/listbylist.php"
+    doc = Nokogiri.HTML(open(url))
+    doc.css("form td:nth-child(2)").each do |s|
+      puts s.text
+      Subject.find_or_create({name: s.text})
+    end
+  end
 end

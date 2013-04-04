@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130127020543) do
+ActiveRecord::Schema.define(:version => 20130404174747) do
 
   create_table "marks", :force => true do |t|
     t.string   "title"
@@ -23,10 +23,13 @@ ActiveRecord::Schema.define(:version => 20130127020543) do
     t.string   "category"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email"
+  create_table "subjects", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'array' for column 'subjects_subcribe'
 
 end

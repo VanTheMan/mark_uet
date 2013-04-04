@@ -23,4 +23,9 @@ namespace :db do
     end
     Mark.find_unknowns
   end
+
+  desc "Crawl subjects"
+  task craw_subjects: :environment do
+    Crawl.crawl_subjects_by_semester
+  end
 end
