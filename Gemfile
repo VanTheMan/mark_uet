@@ -8,6 +8,7 @@ gem 'rails', '3.2.11'
 gem 'nokogiri'
 gem 'pry'
 gem 'faraday'
+gem 'simple_form'
 
 gem 'newrelic_rpm'
 
@@ -23,6 +24,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'bootstrap-sass'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'fancybox-rails'

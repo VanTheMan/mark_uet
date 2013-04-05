@@ -73,9 +73,27 @@ class Crawl
   def self.crawl_subjects_by_semester
     url = "http://112.137.129.115/tkb/listbylist.php"
     doc = Nokogiri.HTML(open(url))
-    doc.css("form td:nth-child(2)").each do |s|
-      puts s.text
-      Subject.find_or_create({name: s.text})
+
+    codes = []
+    names = []
+
+    doc.css("form").each do |s|
+      unless s.css("td:nth-child(2)").nil?
+        s.css("td:nth-child(2)").each do |e|
+          codes << e.text unless e.text.blank?
+        end
+        s.css("td:nth-child(3)").each do |e|
+          names << e.text
+        end
+      end
+    end
+
+    codes.each_with_index do |code, index|
+      attribute = {
+        code: code,
+        name: names[index]
+      }
+      Subject.find_or_create(attribute)
     end
   end
 end

@@ -4,7 +4,11 @@ MarkUet::Application.routes.draw do
   match 'filter' => 'marks#filter'
   match 'sorry' => 'marks#uet_suck'
 
-  resources :users
+  resources :users do
+    collection do
+      post 'subcribe'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

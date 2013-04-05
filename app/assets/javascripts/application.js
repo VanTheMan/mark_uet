@@ -12,5 +12,16 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require tag-it
+//= require bootstrap
 //= require fancybox
-//= require_tree .
+
+$(document).ready(function() {
+  var arr = $(".subject").map(function() { return $(this).text() }).get();
+  $('#myTags').tagit({
+    maxLength: 140,
+    availableTags: arr,
+    singleField: true,
+    singleFieldNode: $('.myTagsField')
+  });
+});

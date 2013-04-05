@@ -1,6 +1,7 @@
 class MarksController < ApplicationController
   def index
     @user = User.new
+    @subjects = Subject.all
     categories = ["INT", "MAT", "PHY"]
     if Crawl.check_uet
       categories.each do |category|
@@ -14,6 +15,7 @@ class MarksController < ApplicationController
 
   def filter
     @user = User.new
+    @subjects = Subject.all
     case params[:cat]
     when 'int'
       @marks = Mark.filter_int

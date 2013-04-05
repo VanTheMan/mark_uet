@@ -14,33 +14,17 @@
       <div class="span11">
         <%= yield %>
         <div style="display:none">
-          <div id="inline">
-            <%= render 'users/form' %>
+          <div id="inline list-subjects">
+            <% @subjects.each do |subject| %>
+              <span class="subject"><%= subject.name %></span>
+              <span class="subject"><%= subject.code %></span>
+            <% end %>
           </div>
         </div>
-        <div style="display:none">
-          <div id="inline-form">
-            <%= render 'users/subcribe' %>
-          </div>
-        </div>
+        <%= render 'users/subcribe' %>
       </div>
     </div>
   </div>
-
-  <script type="text/javascript">
-    $("a.fancybox").fancybox({
-          'href'   : '#inline',
-          'titleShow'  : false,
-          'transitionIn'  : 'elastic',
-          'transitionOut' : 'elastic'
-    });
-
-    $(".form-inline").fancybox({
-          'href'   : '#inline-form',
-          'titleShow'  : false,
-          'transitionIn'  : 'elastic',
-          'transitionOut' : 'elastic'
-    });
   </script>
 </body>
 </html>

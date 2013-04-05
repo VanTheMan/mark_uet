@@ -2,8 +2,13 @@
   margin-top: 60px;
 }
 
-#inline .image{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+#myModal{
+  .image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h3 {
+    text-align: center;
+  }
 }
