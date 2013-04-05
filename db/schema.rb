@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404174747) do
+ActiveRecord::Schema.define(:version => 20130405153043) do
 
   create_table "marks", :force => true do |t|
     t.string   "title"
@@ -27,9 +27,26 @@ ActiveRecord::Schema.define(:version => 20130404174747) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  create_table "subjects_users", :id => false, :force => true do |t|
+    t.integer "subject_id"
+    t.integer "user_id"
+  end
+
+  add_index "subjects_users", ["subject_id", "user_id"], :name => "index_subjects_users_on_subject_id_and_user_id"
+  add_index "subjects_users", ["user_id", "subject_id"], :name => "index_subjects_users_on_user_id_and_subject_id"
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'array' for column 'subjects_subcribe'
+
+  create_table "users_subjects", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "subject_id"
+  end
+
+  add_index "users_subjects", ["subject_id", "user_id"], :name => "index_users_subjects_on_subject_id_and_user_id"
+  add_index "users_subjects", ["user_id", "subject_id"], :name => "index_users_subjects_on_user_id_and_subject_id"
 
 end

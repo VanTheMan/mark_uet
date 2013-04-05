@@ -18,6 +18,11 @@
             <%= render 'users/form' %>
           </div>
         </div>
+        <div style="display:none">
+          <div id="inline-form">
+            <%= render 'users/subcribe' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -25,6 +30,13 @@
   <script type="text/javascript">
     $("a.fancybox").fancybox({
           'href'   : '#inline',
+          'titleShow'  : false,
+          'transitionIn'  : 'elastic',
+          'transitionOut' : 'elastic'
+    });
+
+    $(".form-inline").fancybox({
+          'href'   : '#inline-form',
           'titleShow'  : false,
           'transitionIn'  : 'elastic',
           'transitionOut' : 'elastic'
