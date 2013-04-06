@@ -10,6 +10,8 @@ gem 'pry'
 gem 'faraday'
 gem 'simple_form'
 
+gem "active_model_serializers"
+
 gem 'newrelic_rpm'
 
 group :development do

@@ -4,6 +4,8 @@ MarkUet::Application.routes.draw do
   match 'filter' => 'marks#filter'
   match 'sorry' => 'marks#uet_suck'
 
+  resources :marks, only: %w[index]
+
   resources :users do
     collection do
       post 'subcribe'

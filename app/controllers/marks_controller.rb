@@ -2,15 +2,23 @@ class MarksController < ApplicationController
   def index
     @user = User.new
     @subjects = Subject.all
+    @marks = Mark.all
+
     categories = ["INT", "MAT", "PHY"]
     if Crawl.check_uet
       categories.each do |category|
         Crawl.new.crawl_results(category, false)
       end
+      respond_to do |format|
+        format.html
+        format.json { render json: @marks }
+      end
     else
-      redirect_to sorry_path
+      respond_to do |format|
+        format.html { redirect_to sorry_path }
+        format.json { render json: { error: "UET die!!" } }
+      end
     end
-    @marks = Mark.all
   end
 
   def filter
@@ -23,6 +31,11 @@ class MarksController < ApplicationController
       @marks = Mark.filter_mat
     when 'phy'
       @marks = Mark.filter_phy
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @marks }
     end
   end
 
