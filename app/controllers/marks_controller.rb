@@ -11,9 +11,9 @@ class MarksController < ApplicationController
 
     categories = ["INT", "MAT", "PHY"]
     if Crawl.check_uet
-      categories.each do |category|
-        Crawl.new.crawl_results(category, false)
-      end
+      # categories.each do |category|
+      #   Crawl.new.crawl_results(category, false)
+      # end
       respond_to do |format|
         format.html
         format.json { render json: @marks }
