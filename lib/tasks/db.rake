@@ -16,7 +16,11 @@ namespace :db do
     categories = ["INT", "MAT", "PHY","Other"]
     if Crawl.check_uet
       categories.each do |category|
-        Crawl.new.crawl_results(category, true)
+        if category == "Other"
+          Crawl.new.crawl_results("Other", false)
+        else
+          Crawl.new.crawl_results(category, true)
+        end
       end
     else
       puts "Die"

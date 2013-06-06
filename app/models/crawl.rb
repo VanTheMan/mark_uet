@@ -18,11 +18,12 @@ class Crawl
     doc.css("option").each do |element|
       name = element.text
       value = element.attr("value")
-      # if category == "Other"
-        # subjects[name] = value
-      # elsif element.text =~ /^(#{category})/
+      if category == "Other"
         subjects[name] = value
-      # end
+      end
+      if element.text =~ /^(#{category})/
+        subjects[name] = value
+      end
     end
     subjects
   end
@@ -38,9 +39,9 @@ class Crawl
 
   def crawl_results(category, all)
     subjects = crawl_subjects(category)
-    # if all == false
-    subjects = filter_subjects_not_crawl(subjects)
-    # end
+    if all == false
+      subjects = filter_subjects_not_crawl(subjects)
+    end
 
     conn = Faraday.new(:url => 'http://www.coltech.vnu.edu.vn') do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
