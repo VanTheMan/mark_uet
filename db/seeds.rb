@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Subject.create!(name: "Khoá luận tốt nghiệp", code: "INT4055")
+Subject.create!(name: "Khoa luan tot nghiep", code: "INT4055")
