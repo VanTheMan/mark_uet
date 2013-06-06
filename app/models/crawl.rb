@@ -18,7 +18,9 @@ class Crawl
     doc.css("option").each do |element|
       name = element.text
       value = element.attr("value")
-      if element.text =~ /^(#{category})/
+      if category == "Other"
+        subjects[name] = value
+      elsif element.text =~ /^(#{category})/
         subjects[name] = value
       end
     end

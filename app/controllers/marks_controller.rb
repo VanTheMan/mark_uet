@@ -4,6 +4,11 @@ class MarksController < ApplicationController
     @subjects = Subject.all
     @marks = Mark.all
 
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @marks }
+    # end
+
     categories = ["INT", "MAT", "PHY"]
     if Crawl.check_uet
       categories.each do |category|
@@ -31,6 +36,8 @@ class MarksController < ApplicationController
       @marks = Mark.filter_mat
     when 'phy'
       @marks = Mark.filter_phy
+    when 'other'
+      @marks = Mark.filter_other
     end
 
     respond_to do |format|

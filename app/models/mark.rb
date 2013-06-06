@@ -5,6 +5,7 @@ class Mark < ActiveRecord::Base
   scope :filter_int, where("category like ?", "INT")
   scope :filter_mat, where("category like ?", "MAT")
   scope :filter_phy, where("category like ?", "PHY")
+  scope :filter_other, where("category like ?", "Other")
 
   def self.find_or_create(attributes)
     Mark.where(attributes).first || Mark.create(attributes)

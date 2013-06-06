@@ -13,7 +13,7 @@ namespace :db do
   end
 
   task crawl_all: :environment do
-    categories = ["INT", "MAT", "PHY"]
+    categories = ["INT", "MAT", "PHY","Other"]
     if Crawl.check_uet
       categories.each do |category|
         Crawl.new.crawl_results(category, true)
